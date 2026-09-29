@@ -1,0 +1,377 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+  /* Futuristic Dark Theme Color Palette */
+  --bg-primary: #0a0c16;
+  --bg-secondary: #0f1324;
+  --bg-tertiary: #161b33;
+  --bg-card: rgba(22, 27, 51, 0.7);
+  --bg-card-hover: rgba(30, 37, 70, 0.85);
+  --bg-glass: rgba(15, 19, 36, 0.65);
+  
+  /* Neon Accent Gradients */
+  --accent-cyan: #00f2fe;
+  --accent-blue: #4facfe;
+  --accent-violet: #7f00ff;
+  --accent-purple: #e100ff;
+  --accent-emerald: #00f5a0;
+  --accent-amber: #f6d365;
+  --accent-rose: #ff416c;
+
+  --grad-cyan-violet: linear-gradient(135deg, #00f2fe 0%, #7f00ff 100%);
+  --grad-violet-purple: linear-gradient(135deg, #7f00ff 0%, #e100ff 100%);
+  --grad-emerald-cyan: linear-gradient(135deg, #00f5a0 0%, #00f2fe 100%);
+  --grad-amber-rose: linear-gradient(135deg, #f6d365 0%, #ff416c 100%);
+  --grad-dark-card: linear-gradient(145deg, rgba(26, 32, 60, 0.6) 0%, rgba(13, 17, 34, 0.8) 100%);
+
+  /* Text Colors */
+  --text-main: #f0f4fc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  /* Borders & Glows */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 242, 254, 0.3);
+  --border-violet-glow: rgba(127, 0, 255, 0.35);
+  --shadow-neon-cyan: 0 0 25px rgba(0, 242, 254, 0.25);
+  --shadow-neon-violet: 0 0 25px rgba(127, 0, 255, 0.3);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* Fonts */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* Glassmorphism Panel Tokens */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  box-shadow: var(--shadow-glass);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.glass-panel-glow {
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-neon-cyan);
+}
+
+.glass-panel-violet {
+  border-color: var(--border-violet-glow);
+  box-shadow: var(--shadow-neon-violet);
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: var(--grad-cyan-violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-emerald {
+  background: var(--grad-emerald-cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-amber {
+  background: var(--grad-amber-rose);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Futuristic Neon Buttons */
+.btn-neon-primary {
+  background: var(--grad-cyan-violet);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 10px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-neon-primary:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.6), 0 0 35px rgba(127, 0, 255, 0.4);
+}
+.btn-neon-primary:active {
+  transform: translateY(0);
+}
+
+.btn-neon-outline {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid rgba(0, 242, 254, 0.4);
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-neon-outline:hover {
+  background: rgba(0, 242, 254, 0.1);
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+}
+
+/* Chips / Badges */
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+.skill-chip-matched {
+  background: rgba(0, 245, 160, 0.12);
+  color: #00f5a0;
+  border-color: rgba(0, 245, 160, 0.3);
+}
+.skill-chip-missing {
+  background: rgba(246, 211, 101, 0.12);
+  color: #f6d365;
+  border-color: rgba(246, 211, 101, 0.3);
+}
+.skill-chip-neutral {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+}
+
+/* Form Controls in Dark Theme */
+.form-control-futuristic {
+  background-color: rgba(15, 19, 36, 0.8) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-main) !important;
+  border-radius: 10px !important;
+  padding: 12px 16px;
+  transition: all 0.2s ease !important;
+}
+.form-control-futuristic:focus {
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.25) !important;
+  outline: none !important;
+}
+.form-control-futuristic::placeholder {
+  color: var(--text-dim) !important;
+}
+
+/* Inputs with Icons - Definite Spacing to Eliminate Overlap */
+.form-control-futuristic.ps-5,
+.form-control-futuristic.has-icon,
+.input-with-icon {
+  padding-left: 48px !important;
+}
+
+.input-icon-left {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 5;
+  color: #64748b;
+  transition: color 0.2s ease;
+}
+
+.position-relative:focus-within .input-icon-left {
+  color: var(--accent-cyan) !important;
+}
+
+/* Mobile Layout Adaptation for 370px to 450px Range */
+@media (max-width: 480px) {
+  /* Prevent horizontal overflow strictly */
+  body, html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  .container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Responsive Glass Panels */
+  .glass-panel {
+    padding: 18px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Typography Scaling for 370px - 450px screens */
+  h1 {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.5px !important;
+  }
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+  h3 {
+    font-size: 1.25rem !important;
+  }
+  h4 {
+    font-size: 1.05rem !important;
+  }
+  p {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Input fields padding on compact screens */
+  .form-control-futuristic {
+    font-size: 0.88rem !important;
+    padding: 10px 14px;
+  }
+  .form-control-futuristic.ps-5,
+  .form-control-futuristic.has-icon {
+    padding-left: 44px !important;
+  }
+  .input-icon-left {
+    left: 14px !important;
+  }
+
+  /* Buttons on Mobile */
+  .btn-neon-primary,
+  .btn-neon-outline {
+    font-size: 0.85rem !important;
+    padding: 9px 16px !important;
+  }
+
+  .mobile-w-100 {
+    width: 100% !important;
+  }
+
+  .mobile-flex-col {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  /* Chips and badges */
+  .skill-chip {
+    font-size: 0.75rem !important;
+    padding: 3px 9px !important;
+  }
+
+  /* Stats numbers on 370-450px */
+  .stat-number {
+    font-size: 1.7rem !important;
+  }
+  .stat-label {
+    font-size: 0.75rem !important;
+  }
+
+  /* Wizard Step Nodes on 370-450px */
+  .step-node-circle {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 11px !important;
+  }
+
+  /* Resume Paper Responsive Preview */
+  .resume-paper {
+    padding: 18px 14px !important;
+    border-radius: 8px !important;
+    font-size: 0.82rem !important;
+    overflow-x: hidden !important;
+    word-break: break-word !important;
+  }
+  .resume-paper h1 {
+    font-size: 1.5rem !important;
+  }
+  .resume-paper h5 {
+    font-size: 0.85rem !important;
+  }
+  .resume-contact-links {
+    font-size: 0.75rem !important;
+    gap: 8px !important;
+  }
+  .resume-contact-links span {
+    word-break: break-all !important;
+  }
+}
+
+/* Print Styles for Resume */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .resume-paper {
+    background: #fff !important;
+    color: #111 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+}
